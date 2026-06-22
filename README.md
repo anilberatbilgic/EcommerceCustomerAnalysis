@@ -1,27 +1,27 @@
 # 🛒 E-commerce Customer Analysis
 
-Behavioral analysis of e-commerce customers — RFM segmentation plus a similarity-based product recommendation.
+Exploring an online retailer's sales by country, then segmenting customers and recommending related products.
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange.svg)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-KMeans-orange.svg)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626.svg)
 
 **🌐 Language:** English · [Türkçe](#-türkçe)
 
 ## 🧭 Overview
 
-This project turns raw e-commerce transactions into actionable insight: it segments customers by value and behavior, and recommends products using item similarity — the two building blocks of personalized retail.
+This project looks at an online store's transactions from a **business angle** — *where* the customers are, *what* sells in each country — and then goes a step further: it **segments customers** and **recommends related products**.
 
 ## 📊 Dataset
 
-Online retail transaction records (invoices, products, quantities, prices, dates and customer IDs), loaded in Google Colab.
+**Online Retail** (`data.csv`) — transactions from a UK-based online store: `InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, `Country`. Rows without a `CustomerID` are dropped.
 
 ## 🧠 Approach
 
-1. **Preprocessing** — clean the transactions and engineer **RFM** features (Recency, Frequency, Monetary) using `datetime`.
-2. **Segmentation** — cluster customers with **K-Means** to reveal groups such as loyal, at-risk and new customers.
-3. **Recommendation** — build an item-item **cosine similarity** matrix to suggest related products ("customers who bought this also bought…").
-4. **Visualization** — explore distributions and segments with `matplotlib` and `seaborn`.
+1. **Cleaning** — drop missing `CustomerID`s and cast to integer.
+2. **Exploratory analysis** — number of customers per country (top markets), and the **best-selling product in each country** (e.g. Australia → *"MINI PAINT SET VINTAGE"*, Canada → *"RETRO COFFEE MUGS ASSORTED"*).
+3. **Segmentation** — **K-Means** clustering on customer behavior to group similar buyers.
+4. **Recommendation** — an item-item **cosine similarity** matrix suggests related products ("bought together").
 
 ## 🛠️ Tech Stack
 
@@ -42,16 +42,16 @@ Set the dataset path, then run the notebook end to end.
 ## 🇹🇷 Türkçe
 
 ### Genel Bakış
-Bu proje ham e-ticaret işlemlerini eyleme dönüştürülebilir içgörüye çevirir: müşterileri değer ve davranışa göre segmentlere ayırır ve ürün benzerliğiyle öneri yapar — kişiselleştirilmiş perakendenin iki temel taşı.
+Bu proje bir çevrimiçi mağazanın işlemlerine **iş gözüyle** bakar — müşteriler *nerede*, her ülkede *ne* satıyor — ve bir adım öteye geçer: **müşterileri segmentlere ayırır** ve **ilgili ürünleri önerir**.
 
 ### Veri Seti
-Çevrimiçi mağaza işlem kayıtları (faturalar, ürünler, miktarlar, fiyatlar, tarihler ve müşteri kimlikleri), Google Colab'da yüklenir.
+**Online Retail** (`data.csv`) — İngiltere merkezli bir çevrimiçi mağazanın işlemleri: `InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, `Country`. `CustomerID` olmayan satırlar atılır.
 
 ### Yaklaşım
-1. **Ön işleme** — işlemler temizlenir, `datetime` ile **RFM** öznitelikleri (Recency, Frequency, Monetary) üretilir.
-2. **Segmentasyon** — **K-Means** ile müşteriler kümelenir (sadık, riskli, yeni gibi gruplar).
-3. **Öneri** — ürün-ürün **cosine similarity** matrisiyle ilgili ürünler önerilir ("bunu alanlar şunu da aldı").
-4. **Görselleştirme** — `matplotlib` ve `seaborn` ile dağılımlar ve segmentler incelenir.
+1. **Temizlik** — eksik `CustomerID` satırları atılır, tam sayıya çevrilir.
+2. **Keşifsel analiz** — ülke bazında müşteri sayısı (en büyük pazarlar) ve **her ülkenin en çok satan ürünü** (ör. Avustralya → *"MINI PAINT SET VINTAGE"*, Kanada → *"RETRO COFFEE MUGS ASSORTED"*).
+3. **Segmentasyon** — benzer alıcıları gruplamak için **K-Means** kümeleme.
+4. **Öneri** — ürün-ürün **cosine similarity** matrisiyle ilgili ürünler önerilir ("birlikte alınan").
 
 ### Teknolojiler
 `Python` · `pandas` · `numpy` · `scikit-learn` · `matplotlib` · `seaborn`
